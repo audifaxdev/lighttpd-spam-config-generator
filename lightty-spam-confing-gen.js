@@ -9,14 +9,9 @@ fs.readFile('./spammers.txt', 'utf8', function (err, data) {
 	var lighttyConfig = '#Lighttpd configuration file - Spam referer blacklist\n\n';
 
 	data = data.trim().split('\n');
-	//console.log(data);
-	//console.log(data.length + " number of spam host !");
 
 	for (var i = 0; i < data.length; ++i) {
-		//console.log("Spam domain number " + i);
-		//console.log(data[i]);
 		var domainRegExp = String(data[i]).replace('\.','\\.');
-		console.log("DomainRegExp : " + domainRegExp);
 
 		if (i > 0) {
 			lighttyConfig += ' else ';
@@ -24,10 +19,8 @@ fs.readFile('./spammers.txt', 'utf8', function (err, data) {
 
 		lighttyConfig += '$HTTP["referer"] =~ ".*'
 		   + domainRegExp + '.*" {\n    access.deny-all = "enable"\n    url.access-deny = ( "" )\n}';
-		//console.log(lighttyConfig);
 	}
-//	console.log("Generated lightty config :\n")
-//	console.log(lighttyConfig);
+
 	fs.writeFile(
 		"./lighttpd-spam-referer-blacklist.conf",
 		lighttyConfig,
