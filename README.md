@@ -4,4 +4,4 @@ The script reads a blacklist file 'spammers.txt' containing the bad referers' ho
 
 You may import a pre-made blacklist from https://github.com/piwik/referrer-spam-blacklist
 
-Then include the generated file in you lightty config.
+Then include the generated file 'lighttpd-spam-referer-blacklist.conf' in you lightty config.
