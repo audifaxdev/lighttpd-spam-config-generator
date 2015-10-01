@@ -1,3 +1,5 @@
+Dependencies : Node.js
+
 This script generates Lighttpd rules to prevent unwanted referers from polluting logs and stats
 
 The script reads a blacklist file 'spammers.txt' containing the bad referers' hosts seperated with LFs
