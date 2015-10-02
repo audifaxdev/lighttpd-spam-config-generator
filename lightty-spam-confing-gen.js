@@ -16,7 +16,6 @@ fs.readFile('./spammers.txt', 'utf8', function (err, data) {
 		if (i > 0) {
 			lighttyConfig += ' else ';
 		}
-		//^($|.*(domainname\.com))
 		lighttyConfig +=
 		'$HTTP["referer"] =~ ".*' + domainRegExp + '.*" { url.access-deny = ( "" ) }\n';
 	}
